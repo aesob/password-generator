@@ -37,7 +37,15 @@ def include_special(password_list, special_characters):
     return(password_list)
 
 def password_length():
-    return (int(input('How long would you like your password to be?: ')))
+    while True:
+        try:
+            number = (int(input('How long would you like your password to be?: ')))
+            if number > 0: break
+            else: print('Invalid input try again!')
+        except ValueError:
+             print('Invalid input try again!')
+    return number
+            
 
 def generate_password(password_list,length):
     generated_list = []
